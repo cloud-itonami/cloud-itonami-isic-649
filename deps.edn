@@ -1,0 +1,41 @@
+{:paths ["src"]
+ :deps {io.github.kotoba-lang/langgraph
+        {:local/root "../../kotoba-lang/langgraph"}
+        kotoba-lang/ekyc {:local/root "../../kotoba-lang/ekyc"}
+        kotoba-lang/ekyc-native-provider {:local/root "../../kotoba-lang/ekyc-native-provider"}
+        kotoba-lang/mrz {:local/root "../../kotoba-lang/mrz"}
+        kotoba-lang/face-liveness {:local/root "../../kotoba-lang/face-liveness"}
+        kotoba-lang/face-match {:local/root "../../kotoba-lang/face-match"}
+        kotoba-lang/aml {:local/root "../../kotoba-lang/aml"}
+        kotoba-lang/watchlist-screen {:local/root "../../kotoba-lang/watchlist-screen"}
+        ;; CACAO self-mint identity (ADR-2607141700, ported from
+        ;; gftdcojp/cloud-itonami's cloud_itonami/identity.clj -- see
+        ;; kyc_actor/identity.clj's own module doc).
+        io.github.kotoba-lang/org-chainagnostic-cacao
+        {:local/root "../../kotoba-lang/org-chainagnostic-cacao"}
+        io.github.kotoba-lang/org-ietf-ed25519
+        {:local/root "../../kotoba-lang/org-ietf-ed25519"}
+        io.github.kotoba-lang/ipns
+        {:local/root "../../kotoba-lang/tech-ipfs-specs-ipns"}
+        ;; cacao's own deps.edn defaults ed25519/cbor to git deps (for
+        ;; standalone consumption outside this monorepo, ADR-2607022400) --
+        ;; override to local-root siblings here so `clojure -M:test` etc
+        ;; resolve offline against this workspace's checkouts, matching
+        ;; cacao's own :local alias intent without needing every caller to
+        ;; remember to compose it.
+        io.github.kotoba-lang/org-ietf-cbor
+        {:local/root "../../kotoba-lang/org-ietf-cbor"}}
+ :aliases
+ {:dev {:override-deps
+        {io.github.kotoba-lang/langchain
+         {:local/root "../../kotoba-lang/langchain"}}}
+  :run {:main-opts ["-m" "kyc-actor.sim"]}
+  :identity {:main-opts ["-m" "kyc-actor.identity"]}
+  :test {:extra-paths ["test"]
+         :extra-deps {io.github.cognitect-labs/test-runner
+                      {:git/tag "v0.5.1" :git/sha "dfb30dd"}}
+         :main-opts ["-m" "cognitect.test-runner"]
+         :exec-fn cognitect.test-runner.api/test}
+  :lint {:replace-deps {clj-kondo/clj-kondo {:mvn/version "2024.11.14"}}
+         :main-opts ["-m" "clj-kondo.main" "--lint" "src" "test"
+                     "--fail-level" "error"]}}}
