@@ -24,7 +24,14 @@
         ;; cacao's own :local alias intent without needing every caller to
         ;; remember to compose it.
         io.github.kotoba-lang/org-ietf-cbor
-        {:local/root "../../kotoba-lang/org-ietf-cbor"}}
+        {:local/root "../../kotoba-lang/org-ietf-cbor"}
+        ;; 座標二重化の解消（ADR-2608081000）。この lib は依存グラフの中で
+        ;; :local/root と :git/sha の両方で宣言され、どちらも推移依存に落ちるため
+        ;; tools.deps が 'Unable to compare versions' で classpath を組めなかった
+        ;; （= この repo の suite は 1 度も走っていなかった）。top-level で深さ 1 に置く。
+        kotoba-lang/identity
+        {:local/root "../../kotoba-lang/identity"}
+        }
  :aliases
  {:dev {:override-deps
         {io.github.kotoba-lang/langchain
