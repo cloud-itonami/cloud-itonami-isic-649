@@ -29,7 +29,12 @@
         ;; :local/root と :git/sha の両方で宣言され、どちらも推移依存に落ちるため
         ;; tools.deps が 'Unable to compare versions' で classpath を組めなかった
         ;; （= この repo の suite は 1 度も走っていなかった）。top-level で深さ 1 に置く。
-        kotoba-lang/identity
+        ;; io.github.<org>/<name> is the coordinate tools.deps derives from the
+        ;; repository; the bare group is a second name for the same repository
+        ;; and therefore a second library, so identity.* was loading twice --
+        ;; once from this checkout and once from the :git/sha another dependency
+        ;; in the closure pins.
+        io.github.kotoba-lang/identity
         {:local/root "../../kotoba-lang/identity"}
         }
  :aliases
