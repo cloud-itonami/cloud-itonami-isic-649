@@ -17,7 +17,7 @@
    edge/browser code, matching the original's own scoping."
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.string :as str]
+            [kotoba.lang.text :as str]
             [cacao.core :as cacao]
             [ed25519.core :as ed]
             [ipns.core :as ipns])
