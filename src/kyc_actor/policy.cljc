@@ -37,7 +37,7 @@
                                               re-verification request NEVER
                                               auto-resolves, at any
                                               confidence, any phase."
-  (:require [clojure.string :as str]))
+  (:require [kotoba.lang.text :as str]))
 
 (def confidence-floor 0.6)
 
@@ -64,7 +64,7 @@
                    (or (:liveness-status proposal) :missing) ")")}]))
 
 (defn- accreditation-claim-violations [proposal]
-  (let [text (str/lower-case (str (:summary proposal)))]
+  (let [text (str/lower (str (:summary proposal)))]
     (when (some #(str/includes? text %) accreditation-claim-terms)
       [{:rule :accreditation-claim-gate
         :detail "proposal text claims regulatory accreditation this actor does not hold"}])))
