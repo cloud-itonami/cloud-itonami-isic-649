@@ -32,7 +32,7 @@ Implemented:
   every unresolved legal/compliance question, mirroring `network-isekai`'s
   `legal/terms.md` convention.
 - 38 tests, 90 assertions, 0 failures. `clj-kondo`: 0 errors, 0 warnings.
-  `clojure -M:dev:run` demo walks clean-auto-commit, sanctioned-hard-hold,
+  `kbb -M:dev:run` demo walks clean-auto-commit, sanctioned-hard-hold,
   and correction-request-escalate-then-approve scenarios successfully.
 
 Not yet R0→R1 (i.e., explicitly absent, not a rounding-down):

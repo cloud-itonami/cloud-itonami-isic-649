@@ -11,7 +11,7 @@
    deployment injects kyc-actor.verifier/real-verifier instead (see
    kyc-actor.operation/build's :verifier opt and this repo's README.md).
 
-   Run: clojure -M:dev:run"
+   Run: kbb -M:dev:run"
   (:require [langgraph.graph :as g]
             [kyc-actor.store :as store]
             [kyc-actor.operation :as op]))

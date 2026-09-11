@@ -85,7 +85,7 @@ risk for this domain. See this repo's ADR for the full reasoning.
 (api/request-verification! actor db "case-1" {:subject/id "did:..." :subject/name "..."})
 ```
 
-Demo: `clojure -M:dev:run` (`kyc-actor.sim`).
+Demo: `kbb -M:dev:run` (`kyc-actor.sim`).
 
 See `MATURITY.md`, `docs/legal/data-handling.md`, and
 `90-docs/adr/*-cloud-itonami-isic-649.edn` (in the `com-junkawasaki/root`
