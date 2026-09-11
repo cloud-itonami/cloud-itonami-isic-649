@@ -24,7 +24,7 @@
         {:local/root "../../kotoba-lang/tech-ipfs-specs-ipns"}
         ;; cacao's own deps.edn defaults ed25519/cbor to git deps (for
         ;; standalone consumption outside this monorepo, ADR-2607022400) --
-        ;; override to local-root siblings here so `clojure -M:test` etc
+        ;; override to local-root siblings here so `kbb -M:test` etc
         ;; resolve offline against this workspace's checkouts, matching
         ;; cacao's own :local alias intent without needing every caller to
         ;; remember to compose it.

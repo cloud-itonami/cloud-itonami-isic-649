@@ -3,7 +3,7 @@
 ## Running the demo
 
 ```bash
-clojure -M:dev:run
+kbb -M:dev:run
 ```
 
 Walks three scenarios through `kyc-actor.operation`'s compiled graph with
@@ -41,7 +41,7 @@ new real deployment at full autonomy from day one).
 ## CACAO identity (kotobase.net auth)
 
 ```bash
-clojure -M:identity
+kbb -M:identity
 ```
 
 Mints/loads this actor's own Ed25519 identity at
