@@ -15,7 +15,7 @@
    original module also serves). JVM-only (java.security.SecureRandom /
    java.time / java.nio.file), not .cljc — a local operator tool, not
    edge/browser code, matching the original's own scoping."
-  (:require [clojure.edn :as edn]
+  (:require [kotoba.lang.edn :as edn]
             [clojure.java.io :as io]
             [kotoba.lang.text :as str]
             [cacao.core :as cacao]
