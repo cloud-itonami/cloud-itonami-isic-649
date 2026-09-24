@@ -1,7 +1,7 @@
 (ns kyc-actor.identity-test
   (:require [clojure.edn :as edn]
             [clojure.java.io :as io]
-            [clojure.test :refer [deftest is]]
+            [kotoba.test :refer [deftest is]]
             [kyc-actor.identity :as identity]))
 
 (defn- temp-path []

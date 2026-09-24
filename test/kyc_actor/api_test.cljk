@@ -1,5 +1,5 @@
 (ns kyc-actor.api-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kyc-actor.api :as api]
             [kyc-actor.operation :as op]
             [kyc-actor.store :as store]

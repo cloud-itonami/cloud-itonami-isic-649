@@ -1,5 +1,5 @@
 (ns kyc-actor.store-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [kyc-actor.store :as store]))
 
 (deftest mem-store-case-lifecycle
