@@ -1,5 +1,5 @@
 (ns kyc-actor.verifier-test
-  (:require [clojure.test :refer [deftest is]]
+  (:require [kotoba.test :refer [deftest is]]
             [face-liveness.model :as liveness-model]
             [kyc-actor.verifier :as verifier]
             [watchlist.model :as watchlist-model]
