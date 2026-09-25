@@ -1,6 +1,6 @@
 (ns kyc-actor.identity-test
   (:require [kotoba.lang.edn :as edn]
-            [clojure.java.io :as io]
+            [kotoba.io :as io]
             [kotoba.test :refer [deftest is]]
             [kyc-actor.identity :as identity]))
 
@@ -12,7 +12,7 @@
 (deftest first-load-generates-and-persists-a-real-did-key
   (let [path (temp-path)
         id (identity/load-or-create-identity! path)]
-    (is (.exists path))
+    (is (io/exists? path))
     (is (string? (:seed-hex id)))
     (is (= 64 (count (:seed-hex id))) "32-byte seed, hex-encoded")
     (is (re-matches #"did:key:z.+" (:did id)))
