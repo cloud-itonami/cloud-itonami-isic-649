@@ -1,6 +1,6 @@
 (ns kyc-actor.identity
   "CACAO/did:key self-mint identity for this actor — minted and held in the
-   actor's OWN runtime (CLAUDE.md's kotoba-server section: an actor
+   actor's OWN runtime (AGENTS.md's kotoba-server section: an actor
    authenticates with its own key, never a shared operator secret), so
    this actor can authenticate to kotobase.net as itself. Persists the raw
    Ed25519 seed at `.kyc-actor/identity.edn` (gitignored, never
